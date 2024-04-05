@@ -90,7 +90,7 @@ const MaquinaTuring = () => {
           </p>
         )}
       </div>
-
+      <h2 className="text-xl mt-5 font-bold">Diagrama de Transicion</h2>
       <DiagramaTuring />
     </div>
   );

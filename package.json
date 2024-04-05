@@ -10,17 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@antv/g6": "^4.8.24",
     "@visx/network": "^3.3.0",
-    "bootstrap": "^5.3.3",
-    "d3": "^5.16.0",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
-    "react-flow-renderer": "^10.3.17",
-    "reactflow": "^11.11.0",
-    "vis-network": "^9.1.9",
-    "zustand": "^4.5.2"
+    "vis-network": "^9.1.9"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
