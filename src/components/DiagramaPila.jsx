@@ -1,25 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { DataSet, Network } from "vis-network/standalone/umd/vis-network.min";
 import "vis-network/styles/vis-network.css";
 
 const DiagramaAPD = () => {
-  useEffect(() => {
-    // Crear un conjunto de datos para los nodos (estados) y las aristas (transiciones)
-    const nodes = new DataSet([
+  const [nodes, setNodes] = useState(
+    new DataSet([
       { id: 0, label: "q0" }, // Estado inicial
       { id: 1, label: "q1" }, // Estado final
-    ]);
-
-    const edges = new DataSet([
-      // Transiciones desde el estado inicial q0
-      { from: 0, to: 0, label: "a, $ → a$" }, // Empujar 'a' en la pila
-      { from: 0, to: 0, label: "b, a → ε" }, // Sacar 'a' de la pila cuando se lee 'b'
-
-      // Transiciones desde el estado final q1
+    ])
+  ); // Estado para los nodos
+  const [edges, setEdges] = useState(
+    new DataSet([
+      { from: 0, to: 0, label: "(a, ε / a) \n (b, ε / b) \n (a, - / #) \n (b, - / #)" }, // Empujar 'a' en la pila
+     
       { from: 0, to: 1, label: "ε, $ → ε" }, // Transición a estado final
-    ]);
+    ])
+  ); // Estado para las aristas
+  const [network, setNetwork] = useState(null); // Estado para la red
 
-    // Crear el objeto de datos para el diagrama
+  useEffect(() => {
+    // Crear la red (diagrama) utilizando vis-network
     const container = document.getElementById("automata-diagram");
     const data = {
       nodes: nodes,
@@ -33,20 +33,19 @@ const DiagramaAPD = () => {
       },
     };
 
-    // Crear la red (diagrama) utilizando vis-network
-    const network = new Network(container, data, options);
+    const newNetwork = new Network(container, data, options);
+    setNetwork(newNetwork);
 
     return () => {
       // Limpiar la red al desmontar el componente
-      network.destroy();
+      newNetwork.destroy();
     };
-  }, []);
+  }, [nodes, edges]);
 
   return (
-    <div
-      id="automata-diagram"
-      style={{ width: "100%", height: "400px" }}
-    />
+    <div>
+      <div id="automata-diagram" style={{ width: "100%", height: "400px" }} />
+    </div>
   );
 };
 
