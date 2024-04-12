@@ -11,7 +11,7 @@ const DiagramaAPD = () => {
   ); // Estado para los nodos
   const [edges, setEdges] = useState(
     new DataSet([
-      { from: 0, to: 0, label: "(a, ε / a) \n (b, ε / b) \n (a, - / #) \n (b, - / #)" }, // Empujar 'a' en la pila
+      { from: 0, to: 0, label: "(a, ε / #) \n (b, ε / #) \n (a, a / #) \n (b, b / #)\n (a, b / -)\n (b, a / -)" }, // Empujar 'a' en la pila
      
       { from: 0, to: 1, label: "ε, $ → ε" }, // Transición a estado final
     ])
