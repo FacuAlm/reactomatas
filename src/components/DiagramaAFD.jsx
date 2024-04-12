@@ -2,19 +2,28 @@ import React, { useEffect } from "react";
 import { DataSet, Network } from "vis-network/standalone/umd/vis-network.min";
 import "vis-network/styles/vis-network.css";
 
-const DiagramaTuring = () => {
+const DiagramaAFD = () => {
   useEffect(() => {
     // create an array with nodes
     const nodes = new DataSet([
-      { id: 1, label: "q0" },
-      { id: 2, label: "q1" },
+      { id: 0, label: "q0" },
+      { id: 1, label: "q1" },
+      { id: 2, label: "q2" },
+      { id: 3, label: "q3" },
     ]);
 
     // create an array with edges
     const edges = new DataSet([
-      { from: 1, to: 1, arrows: "to", label: "1 ; 0, R  0 ; 1, R" },
-
-      { from: 1, to: 2, arrows: "to", label: " ' '  ; ' ', R " },
+      { from: 0, to: 2, arrows: "to", label: "0" },
+      { from: 0, to: 1, arrows: "to", label: "1" },
+      { from: 0, to: 2, arrows: "to", label: "2" },
+      { from: 1, to: 3, arrows: "to", label: "1" },
+      { from: 1, to: 0, arrows: "to", label: "2" },
+      { from: 2, to: 0, arrows: "to", label: "0" },
+      { from: 2, to: 3, arrows: "to", label: "1" },
+      { from: 2, to: 0, arrows: "to", label: "2" },
+      { from: 3, to: 1, arrows: "to", label: "1" },
+      { from: 3, to: 2, arrows: "to", label: "2" },
     ]);
 
     // create a network
@@ -45,4 +54,4 @@ const DiagramaTuring = () => {
   );
 };
 
-export default DiagramaTuring;
+export default DiagramaAFD;

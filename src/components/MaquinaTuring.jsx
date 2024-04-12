@@ -5,7 +5,7 @@ import Controles from "./Controles";
 import DiagramaTuring from "./DiagramaTuring";
 
 const MaquinaTuring = () => {
-  const [cinta, setCinta] = useState(["0", "1", "1", "0", "0", "1", "1", "0"]); // Contenido inicial de la cinta
+  const [cinta, setCinta] = useState([]); // Contenido inicial de la cinta
   const [cabezal, setCabezal] = useState(0); // Posición inicial del cabezal
   const [palabraInicial, setPalabraInicial] = useState(""); // Estado para la palabra inicial
   const [palabraFinal, setPalabraFinal] = useState(""); // Estado para la palabra final
