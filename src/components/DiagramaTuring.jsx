@@ -12,9 +12,9 @@ const DiagramaTuring = () => {
 
     // create an array with edges
     const edges = new DataSet([
-      { from: 1, to: 1, arrows: "to", label: "1 ; 0, R  0 ; 1, R" },
+      { from: 1, to: 1, arrows: "to", label: "1 ; 0, R \n 0 ; 1, R" },
 
-      { from: 1, to: 2, arrows: "to", label: " ' '  ; ' ', R " },
+      { from: 1, to: 2, arrows: "to", label: " β  ; β, R " },
     ]);
 
     // create a network
